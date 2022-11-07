@@ -47,15 +47,20 @@ a {
   margin: 0 auto;
   text-align: center;
 }
+.nav-top {
+  width: 100vw;
+  height: 10vh;
+  position: fixed;
+  z-index: 100;
+}
 .nav {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 700;
-  height: 10vh;
-  position: fixed;
   background-color: white;
+  padding: 1rem;
 }
 .btn-toggle {
   background: transparent;
@@ -292,6 +297,16 @@ footer {
   margin-bottom: 1.5rem;
 }
 @media screen and (min-width: 700px) {
+  .nav {
+    justify-content: space-around;
+  }
+  .nav-list {
+    display: flex;
+    gap: 1rem;
+  }
+  .btn-toggle {
+    display: none;
+  }
   h1,
   h2 {
     position: relative;
@@ -334,13 +349,7 @@ footer {
   .line-header::before {
     background-color: white;
   }
-  .nav-list {
-    display: flex;
-    gap: 1rem;
-  }
-  .btn-toggle {
-    display: none;
-  }
+
   .header {
     max-width: 60rem;
     flex-direction: row-reverse;
