@@ -32,11 +32,7 @@ ul > li {
 a {
   text-decoration: none;
 }
-h1,
-h2 {
-  position: relative;
-  padding-top: 3rem;
-}
+
 .btn {
   cursor: pointer;
   border: thin solid black;
@@ -52,12 +48,14 @@ h2 {
   text-align: center;
 }
 .nav {
-  margin: 0.5rem auto;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 700;
   height: 10vh;
+  position: fixed;
+  background-color: white;
 }
 .btn-toggle {
   background: transparent;
@@ -79,12 +77,14 @@ h2 {
   background-color: black;
   color: var(--very-light-gray);
 }
-.nav.show .nav-list {
+.nav-list.show {
   background-image: url(/images/bg-pattern-mobile-nav.svg);
   background-repeat: no-repeat;
   background-size: 100% 20rem;
   background-position: bottom;
   background-color: var(--very-dark-violet);
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -96,19 +96,12 @@ h2 {
   position: fixed;
   padding: 0 1.5rem;
   padding-top: 3rem;
-  top: 5rem;
+  top: 4rem;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 100;
+  z-index: 200;
 }
-.nav.show {
-  height: 12.5vh;
-  position: fixed;
-  margin-top: 0;
-  background-color: white;
-}
-.nav.show .btn-list {
+
+.nav-list.show .btn-list {
   border: thin solid white;
   width: 100%;
   max-width: 30rem;
@@ -117,23 +110,25 @@ h2 {
 .close {
   display: none;
 }
-.nav.show .btn-toggle .open {
+.btn-toggle.show .open {
   display: none;
 }
-.nav.show .btn-toggle .close {
+.btn-toggle.show .close {
   display: block;
 }
 
 header {
   background-color: var(--dark-violet);
 }
-
 .header {
   margin: 0 auto;
   max-width: 35rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
+}
+.first-content-header {
+  margin: 0 auto;
 }
 .img-header {
   width: 100%;
@@ -155,7 +150,6 @@ header {
 .p-header {
   font-weight: 100;
   line-height: 1.5rem;
-  opacity: 0.8;
   padding: 1rem 2rem;
 }
 .btn-header {
@@ -196,7 +190,6 @@ main h2 {
 }
 .main-content h4 {
   font-weight: 600;
-  opacity: 0.8;
   font-size: 1.5rem;
   margin: 1rem 0;
 }
@@ -299,6 +292,11 @@ footer {
   margin-bottom: 1.5rem;
 }
 @media screen and (min-width: 700px) {
+  h1,
+  h2 {
+    position: relative;
+    padding-top: 3rem;
+  }
   header::after {
     content: "";
     background-image: url(./images/bg-pattern-intro-right-desktop.svg);
@@ -335,14 +333,6 @@ footer {
   }
   .line-header::before {
     background-color: white;
-  }
-  .nav-fixed {
-    background-color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    z-index: 100;
   }
   .nav-list {
     display: flex;
